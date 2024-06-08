@@ -1,9 +1,10 @@
-import React from 'react';
+import { useRef, useState } from 'react';
+import Header from '../../components/header';
 
 export default function Home() {
   return (
     <div>
-      <p>This is home page</p>
+      <Header />
     </div>
   );
 }
