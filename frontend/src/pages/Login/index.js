@@ -5,14 +5,17 @@ import RegisterForm from '../../components/login/RegisterForm';
 import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 export default function Login() {
   const [visible, setVisible] = useState(false);
   const [cookies, setCookies] = useState(Cookies.get('user'));
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (cookies != null) {
+      dispatch({ type: 'LOGIN', payload: JSON.parse(cookies) });
       navigate('/');
     }
   });
